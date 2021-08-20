@@ -1,4 +1,4 @@
-﻿using APIcook.Models;
+﻿using API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -9,12 +9,12 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIcook.Services
+namespace API.Services
 {
     public class UserService : IUserService
     {
-        private readonly CookDbContext _dbContext;
-        public UserService(CookDbContext dbContext)
+        private readonly PortfolioDbContext _dbContext;
+        public UserService(PortfolioDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -41,7 +41,7 @@ namespace APIcook.Services
                     new Claim(ClaimTypes.Role, user.Role)
                 }),
 
-                Expires = DateTime.UtcNow.AddMinutes(5),
+                Expires = DateTime.UtcNow.AddYears(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
@@ -68,7 +68,7 @@ namespace APIcook.Services
 
         public User GetUserByUserName(string username)
         {
-            return GetUsers().SingleOrDefault(x => x.UserName == username); 
+            return _dbContext.User.FirstOrDefault(b => b.UserName == username); 
         }
 
 

@@ -1,5 +1,5 @@
-using APIcook.Models;
-using APIcook.Services;
+using API.Models;
+using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-namespace APIcook
+namespace API
 {
     public class Startup
     {
@@ -38,7 +38,7 @@ namespace APIcook
             //swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1.0", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Cook API", Version = "V1.0" });
+                c.SwaggerDoc("v1.0", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Portfolio API", Version = "V1.0" });
             });
 
             var key = Encoding.ASCII.GetBytes(SECRET);
@@ -61,13 +61,15 @@ namespace APIcook
                 };
             });
 
-            var connection = Configuration.GetConnectionString("CookingDatabase");
-            services.AddDbContext<CookDbContext>(options => options.UseSqlServer(connection));
-            services.AddScoped<IMeasuresService, MeasuresService>();
-            services.AddScoped<IIngredientsService, IngredientsService>();
-            services.AddScoped<IRecipesService, RecipesService>();
+            var connection = Configuration.GetConnectionString("PortfolioDatabase");
+            services.AddDbContext<PortfolioDbContext>(options => options.UseSqlServer(connection));
+            services.AddScoped<ICertificationsService, CertificationsService>();
+            services.AddScoped<IEducationsService, EducationsService>();
+            services.AddScoped<IExperiencesService, ExperiencesService>();
+            services.AddScoped<IPersonalSkillsService, PersonalSkillsService>();
+            services.AddScoped<IProductionsService, ProductionsService>();
+            services.AddScoped<IProfessionalSkillsService, ProfessionalSkillsService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IRecipeIngredientsService, RecipeIngredientsService>();
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
@@ -82,7 +84,7 @@ namespace APIcook
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("v1.0/swagger.json", "Cook API V1.0");
+                c.SwaggerEndpoint("v1.0/swagger.json", "Portfolio API V1.0");
             });
 
             app.UseCors(x => x

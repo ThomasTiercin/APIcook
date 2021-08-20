@@ -1,33 +1,45 @@
-﻿DROP TABLE [dbo].[RecipeIngredient] ;
-DROP TABLE [dbo].[Recipe] ;
-DROP TABLE [dbo].[Ingredient] ;
-DROP TABLE [dbo].[Measure];
+﻿DROP TABLE [dbo].[Experience] ;
+DROP TABLE [dbo].[Education];
+DROP TABLE [dbo].[Certification];
+DROP TABLE [dbo].[Professional_Skills];
+DROP TABLE [dbo].[Personal_Skills];
+DROP TABLE [dbo].[Production];
 
 
-CREATE TABLE [dbo].[Recipe] (
+CREATE TABLE [dbo].[Experience] (
     [Id]         INT PRIMARY KEY   IDENTITY(1,1) NOT NULL,
-    [Name]              VARCHAR (100) NOT NULL,
-    [Description]          VARCHAR (200),
-    [Instructions]          VARCHAR (200),
-    [CreatedDate]        DATETIME      NOT NULL
+    [Title]              VARCHAR (100) NOT NULL,
+    [Subtitle]          VARCHAR (200),
+    [Detail]          VARCHAR (5000)
 );
 
-CREATE TABLE [dbo].[Ingredient] (
-    [Id]         INT PRIMARY KEY   IDENTITY(1,1)     NOT NULL,
+CREATE TABLE [dbo].[Education] (
+    [Id]         INT PRIMARY KEY   IDENTITY(1,1) NOT NULL,
+    [Title]              VARCHAR (100) NOT NULL,
+    [Subtitle]          VARCHAR (200),
+    [Detail]          VARCHAR (5000)
+);
+
+CREATE TABLE [dbo].[Certification] (
+    [Id]         INT PRIMARY KEY   IDENTITY(1,1) NOT NULL,
+    [Title]              VARCHAR (100) NOT NULL,
+    [Subtitle]          VARCHAR (200),
+    [Detail]          VARCHAR (5000)
+);
+
+CREATE TABLE [dbo].[Professional_Skills] (
+    [Id]         INT PRIMARY KEY   IDENTITY(1,1) NOT NULL,
     [Name]              VARCHAR (100) NOT NULL
 );
 
-CREATE TABLE [dbo].[Measure] (
-    [Id]         INT PRIMARY KEY   IDENTITY(1,1)   NOT NULL,
-    [Name]              VARCHAR (100) NOT NULL,
-);
-CREATE TABLE [dbo].[RecipeIngredient] (
+CREATE TABLE [dbo].[Personal_Skills] (
     [Id]         INT PRIMARY KEY   IDENTITY(1,1) NOT NULL,
-    [RecipeId]         INT  NOT NULL,
-    [IngredientId]         INT  NOT NULL,
-    [MeasureId]         INT  ,
-    [Amount]         BIGINT        ,
-        CONSTRAINT fk_recipe FOREIGN KEY(RecipeId) REFERENCES Recipe(Id), 
-	CONSTRAINT fk_ingredient FOREIGN KEY(IngredientId) REFERENCES Ingredient(Id), 
-	CONSTRAINT fk_measure FOREIGN KEY(MeasureId) REFERENCES Measure(Id) 
+    [Name]              VARCHAR (100) NOT NULL
 );
+
+CREATE TABLE [dbo].[Production] (
+    [Id]         INT PRIMARY KEY   IDENTITY(1,1) NOT NULL,
+    [Title]              VARCHAR (100) NOT NULL,
+    [Link]              VARCHAR (500) NOT NULL
+);
+
