@@ -1,10 +1,10 @@
-﻿using API.Models;
+﻿using APIcook.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Services
+namespace APIcook.Services
 {
     public interface IUserService
     {

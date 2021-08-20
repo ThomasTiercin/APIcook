@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Models;
-using API.Services;
+using APIcook.Models;
+using APIcook.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
+namespace APIcook.Controllers
 {
     [Route("[controller]")]
     [ApiController]

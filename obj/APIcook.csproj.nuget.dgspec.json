@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ttiercin\\Documents\\Portfolio\\API\\APIcook.csproj": {}
+    "C:\\Users\\Thomas\\Desktop\\Thomas\\Code\\Git\\DotNet\\Projet perso\\APIcook\\APIcook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ttiercin\\Documents\\Portfolio\\API\\APIcook.csproj": {
+    "C:\\Users\\Thomas\\Desktop\\Thomas\\Code\\Git\\DotNet\\Projet perso\\APIcook\\APIcook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ttiercin\\Documents\\Portfolio\\API\\APIcook.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\ttiercin\\Documents\\Portfolio\\API\\APIcook.csproj",
-        "packagesPath": "C:\\Users\\ttiercin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ttiercin\\Documents\\Portfolio\\API\\obj\\",
+        "projectUniqueName": "C:\\Users\\Thomas\\Desktop\\Thomas\\Code\\Git\\DotNet\\Projet perso\\APIcook\\APIcook.csproj",
+        "projectName": "APIcook",
+        "projectPath": "C:\\Users\\Thomas\\Desktop\\Thomas\\Code\\Git\\DotNet\\Projet perso\\APIcook\\APIcook.csproj",
+        "packagesPath": "C:\\Users\\Thomas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thomas\\Desktop\\Thomas\\Code\\Git\\DotNet\\Projet perso\\APIcook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ttiercin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,7 +29,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,7 +40,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
@@ -112,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
