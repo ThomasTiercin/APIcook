@@ -12,6 +12,9 @@ namespace APIcook.Models
         public DbSet<Recipe> Recipe { get; set; }
         public DbSet<Ingredient> Ingredient { get; set; }
         public DbSet<RecipeIngredient> RecipeIngredient { get; set; }
+        public DbSet<RecipeInstruction> RecipeInstruction { get; set; }
+        public DbSet<Basket> Basket { get; set; }
+        public DbSet<BasketRecipeIngredient> BasketRecipeIngredient { get; set; }
         public DbSet<User> User { get; set; }
         public CookDbContext(DbContextOptions<CookDbContext> options)
             : base(options)

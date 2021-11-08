@@ -12,7 +12,8 @@ namespace APIcook.Services
 
         void AddRecipeIngredient(RecipeIngredient recipeIngredientItem);
         RecipeIngredient GetRecipeIngredientByID(int id);
-
+        IEnumerable<RecipeIngredient> GetRecipeIngredientByRecipeId(int id);
+        
         void UpdateRecipeIngredient(RecipeIngredient recipeIngredientItem);
 
         void DeleteRecipeIngredient(int id);

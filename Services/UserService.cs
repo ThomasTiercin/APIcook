@@ -41,7 +41,7 @@ namespace APIcook.Services
                     new Claim(ClaimTypes.Role, user.Role)
                 }),
 
-                Expires = DateTime.UtcNow.AddMinutes(5),
+                Expires = DateTime.UtcNow.AddYears(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
@@ -68,7 +68,7 @@ namespace APIcook.Services
 
         public User GetUserByUserName(string username)
         {
-            return GetUsers().SingleOrDefault(x => x.UserName == username); 
+            return _dbContext.User.FirstOrDefault(b => b.UserName == username); 
         }
 
 

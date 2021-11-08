@@ -1,4 +1,5 @@
 using APIcook.Models;
+using APIcook.Middleware;
 using APIcook.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -67,6 +68,9 @@ namespace APIcook
             services.AddScoped<IIngredientsService, IngredientsService>();
             services.AddScoped<IRecipesService, RecipesService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IBasketRecipeIngredientService, BasketRecipeIngredientService>();
+            services.AddScoped<IRecipeInstructionService, RecipeInstructionService>();
             services.AddScoped<IRecipeIngredientsService, RecipeIngredientsService>();
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
@@ -95,6 +99,7 @@ namespace APIcook
             app.UseHttpsRedirection();
             app.UseAuthorization();
 
+            app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

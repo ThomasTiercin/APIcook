@@ -34,6 +34,11 @@ namespace APIcook.Controllers
         {
             return _service.GetRecipeIngredientByID(id);
         }
+        [HttpGet("/api/Recipe/{id}/RecipeIngredients")]
+        public ActionResult<List<RecipeIngredient>> GetRecipeIngredientByRecipeId(int id)
+        {
+            return _service.GetRecipeIngredientByRecipeId(id).ToList();
+        }
         [Authorize(Roles = "admin")]
         [HttpPost("/api/RecipeIngredients")]
         public ActionResult<RecipeIngredient> AddRecipeIngredient(RecipeIngredient recipeIngredient)

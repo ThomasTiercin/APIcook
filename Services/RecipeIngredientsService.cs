@@ -26,7 +26,11 @@ namespace APIcook.Services
         {
             return _dbContext.RecipeIngredient.Include(b => b.Ingredient).Include(b => b.Measure).Include(b => b.Recipe).FirstOrDefault(b => b.Id == Id);
         }
-
+        public IEnumerable<RecipeIngredient> GetRecipeIngredientByRecipeId(int Id)
+        {
+            return _dbContext.RecipeIngredient.Include(b => b.Ingredient).Include(b => b.Measure).Include(b => b.Recipe).Where(b => b.RecipeId == Id);
+        }
+        
         public IEnumerable<RecipeIngredient> GetRecipeIngredients()
         {
             return _dbContext.RecipeIngredient.Include(r => r.Ingredient).Include(r => r.Measure).Include(r => r.Recipe);
