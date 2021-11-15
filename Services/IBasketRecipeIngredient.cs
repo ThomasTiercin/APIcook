@@ -1,8 +1,6 @@
 ﻿using APIcook.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace APIcook.Services
 {
@@ -13,8 +11,10 @@ namespace APIcook.Services
         void AddBasketRecipeIngredient(IEnumerable<BasketRecipeIngredient> BasketRecipeIngredients);
         BasketRecipeIngredient GetBasketRecipeIngredientByID(int id);
         IEnumerable<BasketRecipeIngredient> GetBasketRecipeIngredientByUserId(int id);
-        
+        List<RecipeIngredient> GetBasketRecipeIngredientGroupBy(int id);
         void UpdateBasketRecipeIngredient(BasketRecipeIngredient BasketRecipeIngredientItem);
+        
+        void UpdateBasketByIngredientMeasure(int ingredientId, int measureId, int userId);
 
         void DeleteBasketRecipeIngredient(int id, Boolean visible);
     }

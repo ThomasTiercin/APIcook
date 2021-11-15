@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using APIcook.Models;
 using APIcook.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace APIcook.Controllers
 {
@@ -39,6 +36,11 @@ namespace APIcook.Controllers
         {
             return _service.GetBasketRecipeIngredientByUserId(id).ToList();
         }
+        [HttpGet("/api/User/{id}/BasketRecipeIngredientGroupBy")]
+        public ActionResult<List<RecipeIngredient>> GetBasketRecipeIngredientGroupBy(int id)
+        {
+            return _service.GetBasketRecipeIngredientGroupBy(id).ToList();
+        }
         [Authorize(Roles = "admin")]
         [HttpPost("/api/BasketRecipeIngredient")]
         public ActionResult<List<BasketRecipeIngredient>> AddBasketRecipeIngredient(IEnumerable<BasketRecipeIngredient> BasketRecipeIngredients)
@@ -52,6 +54,13 @@ namespace APIcook.Controllers
         {
             _service.UpdateBasketRecipeIngredient(BasketRecipeIngredient);
             return BasketRecipeIngredient;
+        }
+        [Authorize(Roles = "admin")]
+        [HttpGet("/api/BasketRecipeIngredient/ingredient/{ingredientId}/measure/{measureId}/user/{userId}")]
+        public Boolean UpdateBasketByIngredientMeasure(int ingredientId, int measureId, int userId)
+        {
+            _service.UpdateBasketByIngredientMeasure(ingredientId,measureId,userId);
+            return true;
         }
         [Authorize(Roles = "admin")]
         [HttpDelete("/api/BasketRecipeIngredient/{id}/{visible}")]
