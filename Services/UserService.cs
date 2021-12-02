@@ -1,4 +1,5 @@
 ﻿using APIcook.Models;
+using APIcook.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -7,7 +8,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace APIcook.Services
 {
@@ -21,8 +21,12 @@ namespace APIcook.Services
 
         public string Login(string userName, string password)
         {
-            var user = GetUsers().SingleOrDefault(x => x.UserName == userName && x.Password == password);
-            
+            var user = GetUsers().SingleOrDefault(x => x.UserName == userName);
+            // check password return null if password is false
+            if (CommonMethods.ConvertToDecrypt(user.Password) != password)
+            {
+                return string.Empty;
+            }
             // return null if user not found
             if (user == null)
             {
@@ -84,8 +88,10 @@ namespace APIcook.Services
 
         public void AddUser(User user)
         {
+            
             if (!DoesExist(user.UserName))
             {
+                user.Password = CommonMethods.ConvertToEncrypt(user.Password);
                 _dbContext.Add(user);
                 Save();
             }
