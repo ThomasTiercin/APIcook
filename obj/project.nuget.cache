@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z0mIx3D6NvmYbO4NLEUOMt5lZnfeBtRCb+Tbjzf8B8GI/gnxfH1HrP9ERL7xRfNG+4kEcGHALer7kWRsyMnY3Q==",
+  "dgSpecHash": "GpVn8DdJA9k4yjemb3/r7mvD4WzDExT7kR6TNGCfrqI/0FDZpAKTJawDQZ5eFMQfW6Woekcy0Sc5F0a9gldSCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ttiercin\\Documents\\Projet\\APIcook\\APIcook.csproj",
+  "projectFilePath": "C:\\Users\\ttiercin\\Documents\\Developpement\\Projet\\APIcook\\APIcook.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ttiercin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.0.3\\microsoft.aspnetcore.authentication.jwtbearer.3.0.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
